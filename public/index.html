@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Usage Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carbon Usage Tracker</h1>
+        <input type="date" id="dateInput">
+        <input type="number" id="usageInput" placeholder="Enter carbon usage">
+        <button onclick="addUsage()">Submit</button>
+
+        <h2>Total Carbon Usage: <span id="totalUsage">0</span></h2>
+        <h2>Usage History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Carbon Usage</th>
+                </tr>
+            </thead>
+            <tbody id="usageTable"></tbody>
+        </table>
+    </div>
+
+    <script>
+        async function addUsage() {
+            const date = document.getElementById('dateInput').value;
+            const usage = document.getElementById('usageInput').value;
+            
+            if (!date || !usage) {
+                alert('Please enter both date and usage');
+                return;
+            }
+
+            const response = await fetch('/addUsage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ date, usage })
+            });
+
+            const data = await response.json();
+            alert(data.message);
+            fetchTotalUsage();
+            fetchUsageData();
+        }
+
+        async function fetchTotalUsage() {
+            const response = await fetch('/getTotalUsage');
+            const data = await response.json();
+            document.getElementById('totalUsage').innerText = data.totalUsage || 0;
+        }
+
+        async function fetchUsageData() {
+            const response = await fetch('/getUsageData');
+            const data = await response.json();
+            const tableBody = document.getElementById('usageTable');
+            tableBody.innerHTML = '';
+            data.forEach(row => {
+                tableBody.innerHTML += `<tr><td>${row.date}</td><td>${row.usages}</td></tr>`;
+            });
+        }
+
+        // Load data when the page loads
+        fetchTotalUsage();
+        fetchUsageData();
+    </script>
+</body>
+</html>
