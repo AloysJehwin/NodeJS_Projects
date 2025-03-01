@@ -1,11 +1,10 @@
-document.getElementById('carbonForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
+// Function to add carbon usage
+async function addUsage() {
+    const date = document.getElementById("usageDate").value;
+    const usage = document.getElementById("usageValue").value;
 
-    const date = document.getElementById('date').value;
-    const usage = document.getElementById('usages').value;
-
-    if (!date || !usage) {
-        alert('Please fill in all fields.');
+    if (!date || usage <= 0) {
+        alert("🚨 Enter a valid date and usage value.");
         return;
     }
 
@@ -17,28 +16,39 @@ document.getElementById('carbonForm').addEventListener('submit', async function 
 
     const result = await response.json();
     alert(result.message);
-    fetchTotalUsage();
-    fetchUsageData();
-});
-
-async function fetchTotalUsage() {
-    const response = await fetch('/getTotalUsage');
-    const data = await response.json();
-    document.getElementById('totalUsage').textContent = data.totalUsage || 0;
+    getUsageData();
+    getTotalUsage();
 }
 
-async function fetchUsageData() {
+// Function to get total carbon usage
+async function getTotalUsage() {
+    const response = await fetch('/getTotalUsage');
+    const data = await response.json();
+    document.getElementById("totalUsage").innerText = data.totalUsage || 0;
+}
+
+// Function to get usage data history
+async function getUsageData() {
     const response = await fetch('/getUsageData');
     const data = await response.json();
-    const tableBody = document.getElementById('usageTable');
-    tableBody.innerHTML = '';
+    const tableBody = document.getElementById("usageTable");
+    tableBody.innerHTML = "";
 
     data.forEach(entry => {
-        const row = `<tr><td>${entry.date}</td><td>${entry.usages}</td></tr>`;
+        const row = `<tr><td>${entry.date}</td><td>${entry.usages} kg</td></tr>`;
         tableBody.innerHTML += row;
     });
 }
 
-// Fetch data on load
-fetchTotalUsage();
-fetchUsageData();
+// Function to fetch data from Raspberry Pi
+async function fetchPiData() {
+    const response = await fetch('/fetchPiData');
+    const result = await response.json();
+    alert(result.message || "❌ Failed to fetch data");
+    getUsageData();
+    getTotalUsage();
+}
+
+// Initial Load
+getUsageData();
+getTotalUsage();
