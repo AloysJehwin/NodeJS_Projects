@@ -95,4 +95,5 @@ def update_graph():
     return jsonify({"status": "success"})  # Response to trigger JS refresh
 
 if __name__ == "__main__":
-    app.run(debug=True, port=2500)
+    app.run(host="0.0.0.0", port=2500, debug=True)
+
