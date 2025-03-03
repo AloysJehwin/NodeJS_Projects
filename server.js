@@ -4,9 +4,11 @@ const express = require('express');
 const mysql = require('mysql2'); // MySQL library
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const axios = require('axios'); // For requesting Raspberry Pi data
+const axios = require('axios');
 
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public')); // Serve frontend files
@@ -19,18 +21,19 @@ const db = mysql.createConnection({
     database: process.env.DB_NAME
 });
 
+// Connect to MySQL
 db.connect(err => {
     if (err) {
         console.error('❌ MySQL Connection Error:', err.message);
-        return;
+        process.exit(1); // Exit if DB fails
     }
     console.log('✅ MySQL Connected...');
 });
 
-// API to store carbon usage data
+// ➤ API: Store Carbon Usage Data
 app.post('/addUsage', (req, res) => {
     const { date, usage } = req.body;
-    
+
     if (!date || isNaN(usage) || usage < 0) {
         return res.status(400).json({ error: 'Invalid input data' });
     }
@@ -45,7 +48,7 @@ app.post('/addUsage', (req, res) => {
     });
 });
 
-// API to get total carbon usage
+// ➤ API: Get Total Carbon Usage
 app.get('/getTotalUsage', (req, res) => {
     const query = 'SELECT COALESCE(SUM(usages), 0) AS totalUsage FROM carbon_usage';
     db.query(query, (err, result) => {
@@ -57,7 +60,7 @@ app.get('/getTotalUsage', (req, res) => {
     });
 });
 
-// API to get all carbon usage entries
+// ➤ API: Get All Carbon Usage Entries
 app.get('/getUsageData', (req, res) => {
     const query = 'SELECT * FROM carbon_usage ORDER BY date DESC';
     db.query(query, (err, results) => {
@@ -69,11 +72,11 @@ app.get('/getUsageData', (req, res) => {
     });
 });
 
-// API to request data from Raspberry Pi and store in MySQL
+// ➤ API: Fetch Data from Raspberry Pi and Store in MySQL
 app.get('/fetchPiData', async (req, res) => {
     try {
-        const raspberryPiIP = process.env.PI_IP || '192.168.1.100'; // Set Raspberry Pi IP in .env file
-        const response = await axios.get(`https://${raspberryPiIP}/getSensorData`);
+        const raspberryPiURL = process.env.NGROK_URL || 'https://random-id.ngrok.io'; 
+        const response = await axios.get(`${raspberryPiURL}/getSensorData`);
 
         if (!response.data || typeof response.data.sensor_value !== 'number') {
             return res.status(500).json({ error: 'Invalid sensor data' });
@@ -95,7 +98,7 @@ app.get('/fetchPiData', async (req, res) => {
     }
 });
 
-// Start server
+// ➤ Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Server running at: http://localhost:${PORT}`);
