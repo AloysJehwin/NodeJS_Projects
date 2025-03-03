@@ -73,7 +73,7 @@ app.get('/getUsageData', (req, res) => {
 app.get('/fetchPiData', async (req, res) => {
     try {
         const raspberryPiIP = process.env.PI_IP || '192.168.1.100'; // Set Raspberry Pi IP in .env file
-        const response = await axios.get(`http://${raspberryPiIP}:5000/getSensorData`);
+        const response = await axios.get(`https://${raspberryPiIP}/getSensorData`);
 
         if (!response.data || typeof response.data.sensor_value !== 'number') {
             return res.status(500).json({ error: 'Invalid sensor data' });
