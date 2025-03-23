@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Live Heart Rate Detection</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to CSS in public folder -->
+</head>
+<body>
+    <div class="container">
+        <h1>💖 Live Heart Rate Detection</h1>
+
+        <form action="/predict" method="POST">
+            <label>Enter Heart Rate:</label>
+            <input type="number" name="heartRate" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        <% if (result) { %>
+            <div class="result-box">
+                <h2>Prediction: <%= result %></h2>
+            </div>
+        <% } %>
+
+        <h2>Recent Heart Rate Data</h2>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Heart Rate</th>
+                <th>Label</th>
+            </tr>
+            <% data.forEach(item => { %>
+                <tr>
+                    <td><%= item.id %></td>
+                    <td><%= item.heart_rate %></td>
+                    <td><%= item.label === 1 ? "Abnormal" : "Normal" %></td>
+                </tr>
+            <% }); %>
+        </table>
+    </div>
+</body>
+</html>
