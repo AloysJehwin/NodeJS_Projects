@@ -61,7 +61,7 @@ http://localhost:5000/predict
   ├── /public          # CSS, JS, images
   ├── /views           # EJS templates
   ├── /src             # Server files
-  │    ├── server.js   # Main Express server
+  │    ├── app.js   # Main Express server
   ├── .env             # Environment variables
   ├── package.json     # Project dependencies
 ```
