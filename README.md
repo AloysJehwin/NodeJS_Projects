@@ -11,7 +11,7 @@ Below is a list of available branches, each containing a different Node.js proje
 | Branch Name          | Project Description | Repository Link |
 |----------------------|--------------------|----------------|
 | `Heart_Rate_Analyser`       | A user authentication system using JWT and bcrypt | [Heart Rate Analyser Repo](https://github.com/AloysJehwin/NodeJS_Projects/tree/Heart_Rate_Analyser) |
-| `ecommerce-api`     | A RESTful API for an e-commerce platform | [E-Commerce API Repo](https://github.com/your-repo-name/tree/ecommerce-api) |
+| `qr_generator`     | A Express implemented QR_Code generator | [QR_Generator Repo](https://github.com/AloysJehwin/NodeJS_Projects/tree/qr_generator) |
 
 
 ## 📂 How to Access a Project
