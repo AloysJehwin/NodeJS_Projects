@@ -41,7 +41,7 @@ Make sure you have the following installed:
 Clone the repository:
 
 ```sh
-git clone --branch Movie-Explorer --single-branch https://github.com/user/repo.git
+git clone --branch Movie-Explorer --single-branch https://github.com/AloysJehwin/NodeJS_Projects/tree/Movie-Explorer
 cd Movie-Explorer
 ```
 
