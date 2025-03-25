@@ -39,7 +39,7 @@ Make sure you have **Node.js** and **MySQL** installed.
 ## **⚙ Installation**
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/AloysJehwin/NodeJS_Projects/tree/qr_generator
+git clone --branch feature-branch --single-branch https://github.com/AloysJehwin/NodeJS_Projects/tree/qr_generator
 cd qr_generator
 ```
 
