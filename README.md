@@ -3,14 +3,14 @@
 This is a **QR Code Generator** built using **Node.js**, **Express.js**, **EJS**, and **MySQL**. The application allows users to generate QR codes for any given URL and download them.
 
 ---
-## **🛠 Features**
+## **Features**
 - Generate QR codes from URLs
 - Store QR code data in MySQL database
 - View and download QR codes
 - Simple and attractive UI with **EJS & CSS**
 
 ---
-## **📂 Project Structure**
+## **Project Structure**
 ```
 qr_generator/
 ├── src/
@@ -30,25 +30,25 @@ qr_generator/
 ```
 
 ---
-## **📌 Prerequisites**
+## **Prerequisites**
 Make sure you have **Node.js** and **MySQL** installed.
 - Node.js: [Download Node.js](https://nodejs.org/)
 - MySQL: [Download MySQL](https://dev.mysql.com/downloads/)
 
 ---
 ## **⚙ Installation**
-### **1️⃣ Clone the Repository**
+### **1️ Clone the Repository**
 ```sh
 git clone --branch qr_generator --single-branch https://github.com/AloysJehwin/NodeJS_Projects
 cd NodeJS_Projects
 ```
 
-### **2️⃣ Install Dependencies**
+### **2️ Install Dependencies**
 ```sh
 npm install
 ```
 
-### **3️⃣ Setup Environment Variables**
+### **3️ Setup Environment Variables**
 Create a `.env` file in the root directory and add your MySQL credentials:
 ```sh
 DB_HOST=localhost
@@ -58,7 +58,7 @@ DB_NAME=qr_database
 PORT=3000
 ```
 
-### **4️⃣ Database Setup**
+### **4️ Database Setup**
 Run the following SQL query to create the database and table:
 ```sql
 CREATE DATABASE qr_database;
@@ -72,21 +72,21 @@ CREATE TABLE qr_codes (
 );
 ```
 
-### **5️⃣ Start the Server**
+### **5️ Start the Server**
 ```sh
 npm start
 ```
 The server will start on: **[http://localhost:3000](http://localhost:3000)**
 
 ---
-## **🚀 Usage**
+## **Usage**
 1. Open **http://localhost:3000** in your browser.
 2. Enter a URL in the input field and click **Generate**.
 3. The QR code will be displayed with a **Download** option.
 4. Click **Restart** to reset the page.
 
 ---
-## **🛠 Built With**
+## **Built With**
 - **Node.js** - JavaScript runtime environment
 - **Express.js** - Web framework for Node.js
 - **EJS** - Template engine for rendering views
@@ -94,7 +94,7 @@ The server will start on: **[http://localhost:3000](http://localhost:3000)**
 - **qrcode** - Library for generating QR codes
 
 ---
-## **🤝 Contributing**
+## **Contributing**
 1. Fork the repository
 2. Create a new branch (`git checkout -b feature-branch`)
 3. Commit your changes (`git commit -m 'Add new feature'`)
@@ -102,10 +102,10 @@ The server will start on: **[http://localhost:3000](http://localhost:3000)**
 5. Open a Pull Request
 
 ---
-## **📜 License**
+## **License**
 This project is open-source and available under the **MIT License**.
 
 ---
-## **📩 Contact**
+## **Contact**
 For any issues, contact **Aloys Jehwin** via [GitHub](https://github.com/aloysjehwin) or visit [aloysjehwin.com](https://aloysjehwin.vercel.com).
 
