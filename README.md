@@ -15,8 +15,8 @@ This project is a **Heart Rate Prediction System** using **Node.js, Express, MyS
 
 ### 1️⃣ Clone the Repository
 ```sh
-git clone --branch feature-branch --single-branch https://github.com/AloysJehwin/NodeJS_Projects/tree/Heart_Rate_Analyser
-cd Heart_Rate_Analyser
+git clone --branch Heart_Rate_Analyser --single-branch https://github.com/AloysJehwin/NodeJS_Projects
+cd NodeJS_Projects
 ```
 
 ### 2️⃣ Install Dependencies
