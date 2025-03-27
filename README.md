@@ -5,7 +5,7 @@ Welcome to the **Node.js Projects Repository**! This repository serves as a cent
 ## Overview
 This repository contains multiple Node.js projects, categorized and stored in separate branches. Each project focuses on different aspects of backend development, ranging from REST APIs and authentication systems to real-time applications and microservices.
 
-## 🔀 Available Branches & Projects
+## Available Branches & Projects
 Below is a list of available branches, each containing a different Node.js project:
 
 | Branch Name          | Project Description | Repository Link |
