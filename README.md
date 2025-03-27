@@ -12,7 +12,7 @@ Below is a list of available branches, each containing a different Node.js proje
 |----------------------|--------------------|----------------|
 | `Heart_Rate_Analyser`       | A user authenticated heart rate analysis model | [Heart Rate Analyser Repo](https://github.com/AloysJehwin/NodeJS_Projects/tree/Heart_Rate_Analyser) |
 | `Movie-Explorer`     | A TMBD API implemented user driven page | [Movie Explorer Repo](https://github.com/AloysJehwin/NodeJS_Projects/tree/Movie-Explorer) |
-| `Weather Dashboard`     | A React weather dashbopard with open weather API | [Movie Explorer Repo](https://github.com/AloysJehwin/NodeJS_Projects/tree/Weather_App) |
+| `Weather Dashboard`     | A React weather dashbopard with open weather API | [Weather App Repo](https://github.com/AloysJehwin/NodeJS_Projects/tree/Weather_App) |
 | `qr_generator`     | A Express implemented QR_Code generator | [QR_Generator Repo](https://github.com/AloysJehwin/NodeJS_Projects/tree/qr_generator) |
 
 
