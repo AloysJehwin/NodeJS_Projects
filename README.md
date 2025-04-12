@@ -44,5 +44,5 @@ Feel free to contribute to any project by creating a new branch and submitting a
 ## Contact
 For any questions or collaboration opportunities, reach out to us at [aloysjehwin@gmail.com](aloysjehwin@gmail.com).
 
-Happy coding! 🚀
+Happy coding!
 
