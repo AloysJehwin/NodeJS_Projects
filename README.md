@@ -1,6 +1,6 @@
-# Node.js Projects Repository
+# Web App Projects Repository
 
-Welcome to the **Node.js Projects Repository**! This repository serves as a central hub for various Node.js projects, each of which is maintained in its respective branch. The **main** branch is only for documentation and navigation purposes.
+Welcome to the **Web App Projects Repository**! This repository serves as a central hub for various Node.js projects, each of which is maintained in its respective branch. The **main** branch is only for documentation and navigation purposes.
 
 ## Overview
 This repository contains multiple Node.js projects, categorized and stored in separate branches. Each project focuses on different aspects of backend development, ranging from REST APIs and authentication systems to real-time applications and microservices.
